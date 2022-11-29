@@ -1,5 +1,16 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
-{% endblock %}
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/newpage.css') }}">
+    <head></head>
+    <title>Suleman's Fave Movies</title>
+    <body>
+        <div class="topnav">
+            <a href="/">Login</a>
+            <a href="signup.html">Sign Up</a>
+          </div>
+    <h3> {{user}} is logged in </h3>
+    <h1>My Favorite Movies</h1>
+    <h2>Here you will find movies that I enjoyed</h2>
+    <button onClick="window.location.reload();">Click here to change Movies </button>
+ 
+    </body>
+</html>
