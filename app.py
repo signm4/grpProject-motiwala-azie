@@ -25,13 +25,17 @@ def index():
 '''this function will generate an image based on the following mood that they choose'''
 # need this to generate a link and then somehow get it posted in the css file
 #if not css then to the html
-def imageGen(mood):
+@app.route('/handle_mood_pic', methods = ['POST'])
+def imageGen():
     # These are all links to the images associated with the mood
+    form_data = request.form
+    mood = form_data['mood']
+
     madLink = "http://aldknf;jd.com/adjfasd.jpg"
-    sadLink = " "
-    happyLink = " "
-    anxiousLink = " "
-    stressedLink = " "
+    sadLink = "This is the sad Link "
+    happyLink = "This is the Happy LInk "
+    anxiousLink = " This is the anxious Link "
+    stressedLink = " This is the Stressed Link "
 
     if( mood == "mad"):
         return madLink
@@ -53,5 +57,6 @@ def imageGen(mood):
 
 @app.route('/index.html')
 def main():
-    mood = request.form.get('mood')
-    img = imageGen(mood)
+    # mood = request.form.get('mood')
+    img = imageGen()
+    return img

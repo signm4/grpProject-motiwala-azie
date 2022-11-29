@@ -17,6 +17,17 @@
     <h3> {{user}} is logged in </h3>
     <h1>My Favorite Movies</h1>
     <h2>Here you will find movies that I enjoyed</h2>
+    <form action ="{{ url_for('imageGen') }}" method="post">
+        <label for="mood">Mood</label>
+        <select name="mood" id="mood">
+          <option value="sad">Sad</option>
+          <option value="happy">Happy</option>
+          <option value="mad">Mad</option>
+          <option value="anxious">Anxious</option>
+          <option value="stressed">Stressed</option>
+        </select>
+        <input type="submit" value="Submit" />     
+    </form>
     <button onClick="window.location.reload();">Click here to change Movies </button>
  
     </body>
