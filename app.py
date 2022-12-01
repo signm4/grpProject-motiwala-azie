@@ -38,8 +38,8 @@ def playlistGen(mood):
         trackArs = 100000
 
     elif (mood == "mad"):
-        trackVal = 
-        trackArs =
+        trackVal = 0
+        trackArs =0
 
     elif (mood == "sad"):
         trackVal = 0
@@ -104,6 +104,7 @@ def main():
     return flask.render_template(
         'index.html',
     # mood = "mad",
-    img = imageGen(mood)
+    img = imageGen(mood),
+    playlistLink = playlistGen(mood)
     )
     # return img
