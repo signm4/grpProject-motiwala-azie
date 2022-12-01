@@ -1,5 +1,13 @@
 https://github.com/signm4/grpProject-motiwala-azie
 
+small-firefly-7022.dev
+getting error
+  Executing build process
+    Installing Pip 22.3.1
+failed to configure pip:
+
+error: exec: "python": executable file not found in $PATH
+
 turn on virtual env
 
 make sure to export FLASK_APP=app
@@ -26,6 +34,5 @@ google Planning: https://docs.google.com/document/d/1CyLezB_q5nY602lWCob5ehA9hsE
 Implement 4 out the 6 Technical Requirements (20 pts each):
 Flask server
 REST API Integration (minimum 1 API)
-User login
 Beautification
 
