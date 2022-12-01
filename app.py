@@ -60,13 +60,20 @@ def playlistGen(mood):
                 'resultsnumber' : 5,
                 'trackvalence' : trackVal,
                 'trackarousal' : trackArs,
-                'format' : 'json'}
+                'format' : 'json'},
+                verify=False
     )
-
+    td_array = []
     json_data = response.json()
     tracks_data = (json_data['tracks'])
     track_data = ((tracks_data['track']))
-    return((track_data)["title"])
+    int(i)
+    for i in track_data:
+        title_data = ((track_data[i]))
+        # td_array.append((track_data['title']))
+        print((title_data)['title'])
+        return((title_data)['title'])
+
 
 
 
