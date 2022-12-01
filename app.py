@@ -67,12 +67,11 @@ def playlistGen(mood):
     json_data = response.json()
     tracks_data = (json_data['tracks'])
     track_data = ((tracks_data['track']))
-    int(i)
     for i in track_data:
-        title_data = ((track_data[i]))
+        title_data = (i['title'])
         # td_array.append((track_data['title']))
-        print((title_data)['title'])
-        return((title_data)['title'])
+        # print((title_data)['title'])
+        return(title_data)
 
 
 
