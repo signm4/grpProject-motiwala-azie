@@ -25,11 +25,12 @@ def index():
 '''this function will generate an image based on the following mood that they choose'''
 # need this to generate a link and then somehow get it posted in the css file
 #if not css then to the html
-@app.route('/handle_mood_pic', methods = ['POST'])
-def moodHandler():
-    form_data = request.form
-    mood = form_data['mood']
-    return mood
+# @app.route('/handle_mood_pic', methods = ['POST'])
+# def moodHandler():
+#     form_data = request.form
+#     mood = form_data['mood']
+#     imageGen(mood)
+#     return flask.render_template('index.html')
 
 
 
@@ -60,9 +61,13 @@ def imageGen(mood):
 '''this function will generate a playlist based on their mood SPOTIFY API '''
 # def playlistGen():
 
-@app.route('/index.html')
+@app.route('/index.html', methods = ["POST"])
 def main():
-    # mood = request.form.get('mood')
-    mood = moodHandler()
+    mood = request.form.get('mood')
+    # mood = moodHandler()
+    return flask.render_template(
+        'index.html',
+    # mood = "mad",
     img = imageGen(mood)
-    return img
+    )
+    # return img
