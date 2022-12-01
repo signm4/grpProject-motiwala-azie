@@ -26,12 +26,17 @@ def index():
 # need this to generate a link and then somehow get it posted in the css file
 #if not css then to the html
 @app.route('/handle_mood_pic', methods = ['POST'])
-def imageGen():
-    # These are all links to the images associated with the mood
+def moodHandler():
     form_data = request.form
     mood = form_data['mood']
+    return mood
 
-    madLink = "http://aldknf;jd.com/adjfasd.jpg"
+
+
+def imageGen(mood):
+    # These are all links to the images associated with the mood
+
+    madLink = "https://images.hdqwalls.com/download/mad-joker-4k-0o-1280x1024.jpg"
     sadLink = "This is the sad Link "
     happyLink = "This is the Happy LInk "
     anxiousLink = " This is the anxious Link "
@@ -58,5 +63,6 @@ def imageGen():
 @app.route('/index.html')
 def main():
     # mood = request.form.get('mood')
-    img = imageGen()
+    mood = moodHandler()
+    img = imageGen(mood)
     return img
