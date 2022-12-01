@@ -1,0 +1,40 @@
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/login.css') }}">
+    <head></head>
+    <title>Suleman's Fave Movies | Login</title>
+    <body>
+    <h1>Login Here!</h1>
+    <form action="{{ url_for('handle_login') }}" method="post">      
+        <div class="container">
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+      
+          <button type="submit">Login</button>
+
+        </div>
+      
+
+          <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+          
+          <!-- Flash Message for logged in -->
+          <!-- {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class=flashes>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+          {% block body %}{% endblock %} -->
+
+      </form>
+      <div class="container" style="background-color:#f1f1f1">
+        <!-- <button type="button" onclick="history.back()" class="cancelbtn">Sign Up</button> -->
+        <a href="signup.html">
+          <button class ="cancelbtn">Sign Up</button>
+        </a> 
+      </div>
+    <!-- <button onClick="window.location.reload();">Click here to change Movies </button> -->
+    </body>
+</html>
