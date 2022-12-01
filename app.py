@@ -32,16 +32,52 @@ def index():
 #     imageGen(mood)
 #     return flask.render_template('index.html')
 
+def playlistGen(mood):
+    if (mood == "happy"):
+        trackVal = 900000
+        trackArs = 100000
+
+    elif (mood == "mad"):
+        trackVal = 
+        trackArs =
+
+    elif (mood == "sad"):
+        trackVal = 0
+        trackArs =0
+
+    elif (mood == "anxious"):
+        trackVal = 500000
+        trackArs = 500000
+
+    elif (mood == "stressed"):
+        trackVal = 200000
+        trackArs = 500000
+
+    MUSICOVERY_API_REQUEST = 'http://musicovery.com/api/V6/playlist.php?'
+    response = requests.get(
+        f"{MUSICOVERY_API_REQUEST}",
+        params={'fct':'getfrommood',
+                'resultsnumber' : 5,
+                'trackvalence' : trackVal,
+                'trackarousal' : trackArs,
+                'format' : 'json'}
+    )
+
+    json_data = response.json()
+    tracks_data = (json_data['tracks'])
+    track_data = ((tracks_data['track']))
+    return((track_data)["title"])
+
 
 
 def imageGen(mood):
     # These are all links to the images associated with the mood
 
     madLink = "https://images.hdqwalls.com/download/mad-joker-4k-0o-1280x1024.jpg"
-    sadLink = "This is the sad Link "
-    happyLink = "This is the Happy LInk "
-    anxiousLink = " This is the anxious Link "
-    stressedLink = " This is the Stressed Link "
+    sadLink = "https://wallpaperset.com/w/full/5/0/f/205832.jpg"
+    happyLink = "https://i.pinimg.com/736x/c5/c5/32/c5c5328c711e890dac56b5fd63160623.jpg"
+    anxiousLink = "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2021/06/debilitating_anxiety_GettyImages1141651689_Header-1024x575.jpg?w=1155&h=1528"
+    stressedLink = "https://wallpapercave.com/wp/wp5538491.jpg"
 
     if( mood == "mad"):
         return madLink

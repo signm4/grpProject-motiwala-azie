@@ -11,12 +11,12 @@
 
     <body>
         <div class="topnav">
-            <a href="/">Login</a>
-            <a href="signup.html">Sign Up</a>
+            <a href="/">Home</a>
+            <!-- <a href="signup.html">Sign Up</a> -->
           </div>
-    <h3> {{user}} is logged in </h3>
-    <h1>My Favorite Movies</h1>
-    <h2>Here you will find movies that I enjoyed</h2>
+    <!-- <h3> {{user}} is logged in </h3> -->
+    <h1>Enviornment.io</h1>
+    <h2>Here you will be created a suitable environment based on your mood:</h2>
     <form action ="{{ url_for('main') }}" method="post">
         <label for="mood">Mood</label>
         <select name="mood" id="mood">
