@@ -12,10 +12,12 @@ google Rubric: https://docs.google.com/document/d/1oTAWcKagADJPe1_rjW4O8SUZZbEOZ
 google Planning: https://docs.google.com/document/d/1CyLezB_q5nY602lWCob5ehA9hsEcVXKJ3awN1avbaak/edit?usp=sharing
 
 *Two things we enjoyed doing this project: 
+
 1.) The freedom to pick any idea we wanted
 2.) being able to add as many/little features as we wanted
 
 *Two things we didn't enjoy doing in the project: 
+
 1.) How even the smallest error could cause the entire app to not work
 2.) finding a music api that would let us just search up the music with an Oauth or just a regular API key
 
