@@ -22,25 +22,25 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-login_manager = LoginManager()
-login_manager.login_view = 'auth.login'
-login_manager.init_app(app)
+# login_manager = LoginManager()
+# login_manager.login_view = 'auth.login'
+# login_manager.init_app(app)
 
-class Person(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique = True, nullable = False)
+# class Person(UserMixin, db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(80), unique = True, nullable = False)
 
-    def __repr__(self):
-        return '<Review %r>' % self.username
+#     def __repr__(self):
+#         return '<Review %r>' % self.username
 
-    def __repr__(self) -> str:
-        return f"Person with username: {self.username}"
+#     def __repr__(self) -> str:
+#         return f"Person with username: {self.username}"
 
 
-@login_manager.user_loader
-def load_user(id):
-    # since the user_id is just the primary key of our user table, use it in the query for the user
-    return Person.query.get(int(id))
+# @login_manager.user_loader
+# def load_user(id):
+#     # since the user_id is just the primary key of our user table, use it in the query for the user
+#     return Person.query.get(int(id))
 
 @app.route('/')
 def index():
@@ -140,40 +140,40 @@ def main():
     # return img
 
 
-@app.route('/handle_login', methods = ['POST'])
-def handle_login():
-    username = request.form.get('username')
-    if username == " ":
-        flash("Invalid, Please try again")
-        return redirect(url_for('login'))
-    person = Person.query.filter_by(username = username).first()
-    global curr_user
-    curr_user = username
-    # Person.query.filter_by(username)
-    if person:
-        login_user(person)
-        print("User Accepted")
-        return redirect(url_for('main'))
-    else:
-        flash("Failed Identity, Try again")
-        print("User Declined")
-        return(redirect(url_for('login')))
+# @app.route('/handle_login', methods = ['POST'])
+# def handle_login():
+#     username = request.form.get('username')
+#     if username == " ":
+#         flash("Invalid, Please try again")
+#         return redirect(url_for('login'))
+#     person = Person.query.filter_by(username = username).first()
+#     global curr_user
+#     curr_user = username
+#     # Person.query.filter_by(username)
+#     if person:
+#         login_user(person)
+#         print("User Accepted")
+#         return redirect(url_for('main'))
+#     else:
+#         flash("Failed Identity, Try again")
+#         print("User Declined")
+#         return(redirect(url_for('login')))
         
-    # return flask.redirect(url_for('welcome'))
+#     # return flask.redirect(url_for('welcome'))
 
 
 
-@app.route('/handle_signup', methods = ['POST'])
-def handle_signup():
+# @app.route('/handle_signup', methods = ['POST'])
+# def handle_signup():
 
-    # 
-    if request.method == "POST":
-        # getting input with name = fname in HTML form
-        username = request.form.get("username")
-        auth_user = Person(username = username)
-        db.session.add(auth_user)
-        db.session.commit()
-        # flash( "Your name is "+ username )
-        return redirect(url_for('login'))
-        # return render_template("index.html")
-    # return flask.redirect(url_for('welcome'))
+#     # 
+#     if request.method == "POST":
+#         # getting input with name = fname in HTML form
+#         username = request.form.get("username")
+#         auth_user = Person(username = username)
+#         db.session.add(auth_user)
+#         db.session.commit()
+#         # flash( "Your name is "+ username )
+#         return redirect(url_for('login'))
+#         # return render_template("index.html")
+#     # return flask.redirect(url_for('welcome'))
